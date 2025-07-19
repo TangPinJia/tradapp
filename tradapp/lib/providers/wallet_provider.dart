@@ -1,6 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/wallet_state.dart';
-import '../models/transaction.dart';
 import '../services/secure_api_manager.dart';
 
 final walletProvider = StateNotifierProvider<WalletNotifier, WalletState>((ref) {

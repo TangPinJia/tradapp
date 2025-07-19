@@ -1,10 +1,8 @@
-import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:http/http.dart' as http;
 import '../models/transaction.dart';
 
 class SecureApiManager {
-  static const String _baseUrl = 'https://api.tradapp.com'; // Replace with your API
+  // static const String _baseUrl = 'https://api.tradapp.com'; // Replace with your API
   static const FlutterSecureStorage _storage = FlutterSecureStorage();
   
   // Demo data for development
@@ -60,7 +58,7 @@ class SecureApiManager {
 
   Future<double> getBalance() async {
     try {
-      final address = await getWalletAddress();
+      // final address = await getWalletAddress();
       
       // In production, make API call to get real balance
       // final response = await http.get(
@@ -123,13 +121,13 @@ class SecureApiManager {
     }
   }
 
-  Future<Map<String, String>> _getAuthHeaders() async {
-    final token = await _storage.read(key: 'auth_token');
-    return {
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer $token',
-    };
-  }
+  // Future<Map<String, String>> _getAuthHeaders() async {
+  //   final token = await _storage.read(key: 'auth_token');
+  //   return {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'Bearer $token',
+  //   };
+  // }
 
   Future<void> saveWalletAddress(String address) async {
     await _storage.write(key: 'wallet_address', value: address);
